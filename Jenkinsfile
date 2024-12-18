@@ -3,7 +3,7 @@ pipeline {
     stages {
       stage('SCM') {
         steps {
-            git 'https://github.com/malli-source/-jenkins-maven-project.git'
+            git 'https://github.com/malli-source/javatech.git'
         } 
       }
       stage('Code Compile') {

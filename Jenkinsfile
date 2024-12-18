@@ -16,7 +16,7 @@ pipeline {
             scripts {
                  def jarFilePath = "javatechbase/target/*.jar"
                  // Replace the placeholder in Dockerfile.template
-                 bat """
+                 powershell """
                  (Get-Content Dockerfile.template) -replace '\{\{JAR_FILE_PATH\}\}', 'javatechbase/target/*.jar' | Set-Content Dockerfile
                  """
             }

@@ -3,7 +3,7 @@ pipeline {
     stages {
       stage('SCM') {
         steps {
-            git 'https://github.com/malli-source/java-tech.git'
+            git brnach: main, url: 'https://github.com/malli-source/java-tech.git'
         } 
       }
       stage('Code Compile') {

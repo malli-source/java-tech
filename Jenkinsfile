@@ -14,7 +14,11 @@ pipeline {
       stage('Build Image') {
         steps {
             scripts {
-              def jarFilePath = "target/javatechbase*.jar"
+                 def jarFilePath = "javatechbase/target/*.jar"
+                 // Replace the placeholder in Dockerfile.template
+                 bat """
+                 (Get-Content Dockerfile.template) -replace '\{\{JAR_FILE_PATH\}\}', 'javatechbase/target/*.jar' | Set-Content Dockerfile
+                 """
             }
             bat 'docker build -t malli118/sonarqube:javaApp .'
         }

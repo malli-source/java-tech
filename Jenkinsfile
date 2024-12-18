@@ -11,7 +11,7 @@ pipeline {
              bat 'mvn -f javatechbase/pom.xml -B clean package'
         }
       }
-      stage('Build image') {
+      stage('Build Image') {
         steps {
             bat 'docker build -t malli118/sonarqube:javaApp .'
         }

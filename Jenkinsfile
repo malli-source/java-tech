@@ -8,7 +8,7 @@ pipeline {
       }
       stage('Code Compile') {
         steps {
-             bat 'mvn -f ../javatechbase/pom.xml -B clean package'
+             bat 'mvn -f ./javatechbase/pom.xml -B clean package'
         }
       }
       stage('Build image') {

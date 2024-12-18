@@ -13,6 +13,9 @@ pipeline {
       }
       stage('Build Image') {
         steps {
+            scripts {
+              def jarFilePath = "target/javatechbase*.jar"
+            }
             bat 'docker build -t malli118/sonarqube:javaApp .'
         }
       }

@@ -8,7 +8,7 @@ pipeline {
       }
       stage('Code Compile') {
         steps {
-             bat 'mvn -f javatechbase/pom.xml -B clean package'
+             sh 'mvn -f javatechbase/pom.xml -B clean package'
         }
       }
       stage('Build Image') {
@@ -16,20 +16,20 @@ pipeline {
             scripts {
                  def jarFilePath = "javatechbase/target/*.jar"
                  // Replace the placeholder in Dockerfile.template
-                 powershell """
-                 (Get-Content Dockerfile.template) -replace '\{\{JAR_FILE_PATH\}\}', 'javatechbase/target/*.jar' | Set-Content Dockerfile
+                 sh """
+                 sed 's#{{JAR_FILE_PATH}}#${jarFilePath}#g' Dockerfile.template > Dockerfile
                  """
             }
-            bat 'docker build -t malli118/sonarqube:javaApp .'
+            sh 'docker build -t malli118/sonarqube:javaApp .'
         }
       }
       stage('dockerbuild') {
         steps {
           script {
             withCredentials([string(credentialsId: 'dockersecret', variable: 'dockerhubuser')]) {
-                bat 'docker login -u malli118 -p ${dockerhubuser}'
+                sh 'docker login -u malli118 -p ${dockerhubuser}'
             }
-                bat 'docker push malli118/sonarqube'
+                sh 'docker push malli118/sonarqube'
           }
         }
       }

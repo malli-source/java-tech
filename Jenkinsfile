@@ -14,10 +14,9 @@ pipeline {
       stage('Build Image') {
         steps {
           script {
-            script {
               withCredentials([string(credentialsId: 'dockersecret', variable: 'dockerhubuser')]) {
                 sh 'docker login -u malli118 -p ${dockerhubuser}'
-                sh 'docker build -t malli118/sonarqube:javaApp .'
+                sh 'docker build -t javaApp .'
           }
         }
       }

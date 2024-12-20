@@ -24,7 +24,7 @@ pipeline {
             withCredentials([string(credentialsId: 'dockersecret', variable: 'dockerhubuser')]) {
                 sh 'docker login -u malli118 -p ${dockerhubuser}'
             }
-                sh 'docker push javetech:1.0'
+                sh 'docker push malli118/sonarqube/javetech:1.0'
           }
         }
       }

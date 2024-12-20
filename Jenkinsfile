@@ -14,17 +14,17 @@ pipeline {
       stage('Build Image') {
         steps {
           scrip {
-                sh 'docker build -t javaApp .'
+                sh 'docker build -t javaApp:1.0 .'
           }
         }
       }
-      stage('dockerbuild') {
+      stage('push docker image') {
         steps {
           script {
             withCredentials([string(credentialsId: 'dockersecret', variable: 'dockerhubuser')]) {
                 sh 'docker login -u malli118 -p ${dockerhubuser}'
             }
-                sh 'docker push malli118/sonarqube'
+                sh 'docker push javetech:1.0'
           }
         }
       }

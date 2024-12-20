@@ -13,7 +13,7 @@ pipeline {
       }
       stage('Build Image') {
         steps {
-          scrip {
+          script {
                 sh 'docker build -t javaApp:1.0 .'
           }
         }

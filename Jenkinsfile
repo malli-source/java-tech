@@ -25,7 +25,7 @@ pipeline {
                 sh 'docker login -u malli118 -p ${dockerhubuser}'
             }
                sh 'docker tag javatech-app:1.1 malli118/javatech-app:1.1' 
-               sh 'docker push malli118/javetech-app:1.1'
+               sh 'docker push malli118/javatech-app:1.1'
           }
         }
       }

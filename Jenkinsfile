@@ -13,9 +13,7 @@ pipeline {
       }
       stage('Build Image') {
         steps {
-          script {
-              withCredentials([string(credentialsId: 'dockersecret', variable: 'dockerhubuser')]) {
-                sh 'docker login -u malli118 -p ${dockerhubuser}'
+          scrip {
                 sh 'docker build -t javaApp .'
           }
         }

@@ -1,4 +1,6 @@
- stage('Security Analysis (Checkmarx)') {
+pipeline {
+    agent any
+    stage('Security Analysis (Checkmarx)') {
             steps {
                 // Trigger Checkmarx scan
                 script {

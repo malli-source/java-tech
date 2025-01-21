@@ -8,3 +8,24 @@ pipeline {
         }
     }
 }
+
+
+#######################
+pipeline {
+    agent any
+    stages {
+        stage('Checkmarx Scan') {
+            steps {
+                checkmarxScan(
+                    serverUrl: 'https://your-checkmarx-server',
+                    username: 'your-username',
+                    password: 'your-password',
+                    projectName: 'your-project-name',
+                    teamPath: '\\CxServer\\SP\\your-team',
+                    isIncrementalScan: true,
+                    generatePDFReport: true
+                )
+            }
+        }
+    }
+}

@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: java-tech/javatechbase
+        working-directory: /home/runner/work/java-tech/java-tech
 
     steps:
       - name: running

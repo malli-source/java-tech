@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ../javatechbase
+        working-directory: javatechbase
 
     steps:
       - name: running

@@ -1,0 +1,30 @@
+name: Java Maven Reusable Workflow
+
+on:
+  workflow_call:
+    inputs:
+      java-version:
+        required: true
+        type: string
+      maven-goals:
+        required: true
+        type: string
+    secrets:
+      MAVEN_SECRET:
+        required: false
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: ${{ inputs.java-version }}
+
+      - name: Build and Test with Maven
+        run: mvn ${{ inputs.maven-goals }}

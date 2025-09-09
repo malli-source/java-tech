@@ -1,0 +1,17 @@
+name: Main Workflow
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  call-reusable:
+    uses: ./.github/workflows/template.yml
+    with:
+      java-version: '17'
+      maven-goals: 'clean install'
+    secrets:
+      MAVEN_SECRET: ${{ secrets.MAVEN_SECRET }}
+

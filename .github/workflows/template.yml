@@ -12,6 +12,10 @@ on:
     secrets:
       MAVEN_SECRET:
         required: false
+      working-directory:
+        required: false
+        type: string
+        default: '.'
 
 jobs:
   build-and-test:
@@ -28,3 +32,4 @@ jobs:
 
       - name: Build and Test with Maven
         run: mvn ${{ inputs.maven-goals }}
+        working-directory: ${{ inputs.working-directory }}

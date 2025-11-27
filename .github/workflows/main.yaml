@@ -12,6 +12,7 @@ jobs:
     with:
       java-version: '17'
       maven-goals: 'clean install'
+      working-directory: 'javatechbase'
    # secrets:
    #   MAVEN_SECRET: ${{ secrets.MAVEN_SECRET }}
 

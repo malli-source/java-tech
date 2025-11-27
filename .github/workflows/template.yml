@@ -9,9 +9,6 @@ on:
       maven-goals:
         required: true
         type: string
-    secrets:
-      MAVEN_SECRET:
-        required: false
       working-directory:
         required: false
         type: string

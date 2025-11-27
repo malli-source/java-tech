@@ -11,6 +11,8 @@ on:
 
 jobs:
   call-reusable:
+    name: 'reusable-flows'
+    if: github.event_name == 'pull_request' 
     uses: ./.github/workflows/template.yml
     with:
       java-version: '17'

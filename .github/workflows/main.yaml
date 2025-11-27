@@ -1,10 +1,13 @@
 name: Main Workflow
 
 on:
-  push:
-    branches: [ main ]
+  # push:
+  #   branches: [ main ]
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
+      - feature/*
+
 
 jobs:
   call-reusable:

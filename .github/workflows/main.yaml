@@ -8,7 +8,7 @@ on:
 jobs:
   call-reusable:
     name: 'reusable-flows'
-    if: github.event_name == 'pull_request' 
+    # if: github.event_name == 'pull_request' # eventtriggers if the pull request is open/updated
     uses: ./.github/workflows/template.yml
     with:
       java-version: '17'

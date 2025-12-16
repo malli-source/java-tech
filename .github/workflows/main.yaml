@@ -5,14 +5,14 @@ on:
     branches:
       - main
       - feature/*
-  concurrency:
-    group: ${{ github.workflow }}-${{ github.ref}}
-    cancel-in-progresss: true
+  # concurrency:
+  #   group: ${{ github.workflow }}-${{ github.ref}}
+  #   cancel-in-progresss: true
     
 jobs:
   call-reusable:
     name: 'reusable-flows'
-    if: github.event_name == 'pull_request' # eventtriggers if the pull request is open/updated
+    # if: github.event_name == 'pull_request' # eventtriggers if the pull request is open/updated
     uses: ./.github/workflows/template.yml
     with:
       java-version: '17'

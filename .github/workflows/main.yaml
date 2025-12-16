@@ -5,6 +5,10 @@ on:
     branches:
       - main
       - feature/*
+  concurrency:
+    group: ${{ github.workflow }}-${{ github.ref}}
+    cancel-in-progresss: true
+    
 jobs:
   call-reusable:
     name: 'reusable-flows'
